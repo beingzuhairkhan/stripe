@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stripe Payment Demo</title>
+  </head>
+  <body>
+    <h2>Buy Test Product ($50)</h2>
+    <button id="checkout">Pay Now</button>
+
+    <script>
+      document
+        .getElementById("checkout")
+        .addEventListener("click", async () => {
+          const res = await fetch(
+            "http://localhost:4000/create-checkout-session",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+            }
+          );
+          const data = await res.json();
+          window.location.href = data.url; // redirect to Stripe Checkout
+        });
+    </script>
+  </body>
+</html>
