@@ -57,7 +57,7 @@ app.post("/create-checkout-session", async (req, res) => {
             amount: amount,
             currency,
             status: "pending",
-            customer_email: "zuhairKhan@gmail.com",
+            customer_email: "sufiyankhan@gmail.com",
         });
 
         res.json({ id: session.id });
