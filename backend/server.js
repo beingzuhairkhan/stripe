@@ -176,7 +176,7 @@ app.post(
 
 async function start() {
     try {
-        await mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+        await mongoose.connect(MONGO_URI);
         console.log("MongoDB connected");
         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
     } catch (err) {
